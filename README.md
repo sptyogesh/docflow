@@ -2,6 +2,15 @@
 
 A Google Docs-style document editor built for the assessment MVP. Create, edit, save, upload, and share rich-text documents with multiple users.
 
+## Live Demo
+
+**Deployed on Vercel:** [https://docflow-8qv64w881-yogeshs-projects-70e0e22d.vercel.app/](https://docflow-8qv64w881-yogeshs-projects-70e0e22d.vercel.app/)
+
+| Email | Password |
+|-------|----------|
+| owner@test.com | password |
+| user@test.com | password |
+
 ## Features
 
 - **Authentication** — Login with email/password (NextAuth)
@@ -107,6 +116,7 @@ npx prisma db seed
 
 ## Documentation
 
+- [Assessment Prompt](prompt/ASSESSMENT_PROMPT.md) — Original assessment requirements and user flow
 - [Architecture Note](docs/ARCHITECTURE.md) — System design, data model, routes
 - [AI Workflow Note](docs/AI_WORKFLOW.md) — How this project was built with AI assistance
 
@@ -121,8 +131,7 @@ app/
 components/         # Editor, Sidebar, ShareModal, etc.
 lib/                # Prisma, auth, helpers
 prisma/             # Schema + seed
+prompt/             # Assessment prompt / requirements
 __tests__/          # Automated tests
 docs/               # Architecture & AI workflow notes
 ```
-# docflow
-# docflow
