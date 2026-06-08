@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
+  email     String     @unique
+  password  String
+  documents Document[]
+  shares    Share[]    @relation("SharedWithUser")
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+model Document {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  title     String   @default("Untitled Document")
+  content   String   @default("")
+  ownerId   String   @db.ObjectId
+  owner     User     @relation(fields: [ownerId], references: [id])
+  shares    Share[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Share {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  documentId       String   @db.ObjectId
+  sharedWithUserId String   @db.ObjectId
+  document         Document @relation(fields: [documentId], references: [id])
+  user             User     @relation("SharedWithUser", fields: [sharedWithUserId], references: [id])
+  createdAt        DateTime @default(now())
+
+  @@unique([documentId, sharedWithUserId])
+}
