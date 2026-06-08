@@ -322,9 +322,6 @@ Can view/edit according to your implementation.
 ✅ Walkthrough Video
 ```
 
-If you build exactly this flow in Next.js + MongoDB and deploy it on Vercel, you'll satisfy all the mandatory requirements of the assignment.
-
-
 Recommended Stack
 Next.js 15
 TypeScript
